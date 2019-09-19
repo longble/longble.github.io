@@ -1,4 +1,4 @@
-# LongBLe.com
+# longble.com
 Personal website designed from template (see fork source)
 
 #Credits: 
@@ -9,5 +9,5 @@ Personal website designed from template (see fork source)
 - <a href="https://github.com/protonet/jquery.inview" target="_blank">Inview JS</a>
 - <a href="http://vestride.github.io/Shuffle/" target="_blank">Shuffle</a>
 
-#Designer
+#Designer:
 Follow Ahmed: <a href="https://twitter.com/ahmedfaruk_me" target="_blank">Twitter</a>, <a href="https://www.facebook.com/ahmedfaruk.me" target="_blank">Facebook</a>, <a href="https://plus.google.com/u/0/114068300126923667161" target="_blank">Google+</a>
