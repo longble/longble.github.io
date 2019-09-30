@@ -1,5 +1,5 @@
 # longble.com
-Personal website designed from template (see fork source)
+Personal website designed from template.
 
 #Credits: 
 - <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>
