@@ -1,7 +1,7 @@
 /*
 Theme Name: IAMX
-Author: Ahmed Faruk
-Author URL: farukahmed.com
+Author: Trendy Theme
+Author URL: trendytheme.net
 */
 
 /*
@@ -17,7 +17,6 @@ Author URL: farukahmed.com
     = Magnific Popup
     = Vidio auto play
     = Fit Vids
-    = Google Map
 
 */
 
@@ -201,10 +200,24 @@ jQuery(function ($) {
         removalDelay: 300, // Delay in milliseconds before popup is removed
         mainClass: 'mfp-with-zoom', // this class is for CSS animation below
         type:'image'
-
       });
 
     }());
+
+
+
+    (function () {
+        $('.popup-video').magnificPopup({
+            disableOn: 700,
+            type: 'iframe',
+            mainClass: 'mfp-with-zoom',
+            removalDelay: 300,
+            preloader: false,
+            fixedContentPos: false
+        });
+    }());
+
+
 
 
 
@@ -272,75 +285,38 @@ jQuery(function ($) {
 
     }());
 
+
+
     // -------------------------------------------------------------
-    // Google Map
+    // Contact Form
     // -------------------------------------------------------------
 
-    (function () {
-        var myLatlng = new google.maps.LatLng(41.372641, -74.687387);
+    $('#contactForm').on('submit',function(e){
 
-            var styles = [
-                {
-                    featureType: "landscape",
-                    stylers: [
-                        { color: '#f7f7f7' }
-                    ]
-                },{
-                    featureType: "natural",
-                    stylers: [
-                        { hue: '#00ffe6' }
-                    ]
-                },{
-                    featureType: "road",
-                    stylers: [
-                        { hue: '#fff' },
-                        { saturation: -70 }
-                    ]
-                },{
-                    featureType: "building",
-                    elementType: "labels",
-                    stylers: [
-                        { hue: '' }
-                    ]
-                },{
-                    featureType: "poi", //points of interest
-                    stylers: [
-                        { hue: '' }
-                    ]
-                }
-            ];
+        e.preventDefault();
 
-            var mapOptions = {
-                zoom: 15,
-                scrollwheel: false,
-                center: myLatlng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                disableDefaultUI: true,
-                styles: styles
+        var $action = $(this).prop('action');
+        var $data = $(this).serialize();
+        var $this = $(this);
+
+        $this.prevAll('.alert').remove();
+
+        $.post( $action, $data, function( data ) {
+
+            if( data.response=='error' ){
+
+                $this.before( '<div class="alert alert-danger">'+data.message+'</div>' );
             }
-            var map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
 
-            var marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-                animation: google.maps.Animation.DROP,
-                title: 'Hello World!'
-            });
+            if( data.response=='success' ){
 
-            var contentString = '' +
-                    '' +
-                    '';
+                $this.before( '<div class="alert alert-success">'+data.message+'</div>' );
+                $this.find('input, textarea').val('');
+            }
 
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
+        }, "json");
 
-            google.maps.event.addListener(marker, 'click', function () {
-                infowindow.open(map, marker);
-            });
-
-    }());
-
+    });
 
 });
 
