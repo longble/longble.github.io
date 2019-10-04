@@ -28,7 +28,7 @@ jQuery(function ($) {
      * Preloader
     /* ---------------------------------------------- */
 
-    $(window).ready(function() {
+    $(window.document).ready(function() {
         $('#pre-status').fadeOut();
         $('#tt-preloader').delay(350).fadeOut('slow');
     });
@@ -226,28 +226,6 @@ jQuery(function ($) {
     // -------------------------------------------------------------
     (function () {
         $(".video-container").fitVids();
-    }());
-
-
-
-    // -------------------------------------------------------------
-    // Vidio auto play
-    // -------------------------------------------------------------
-    (function () {
-    
-    /* Vimeo API: http://developer.vimeo.com/player/js-api */
-    
-        var iframe = document.getElementById('nofocusvideo');
-        // $f == Froogaloop
-        var player = $f(iframe);
-
-        $('.modal').on('hidden.bs.modal', function () {
-        player.api('pause');
-        })
-
-        $('.modal').on('shown.bs.modal', function () {
-        player.api('play');
-        })
     }());
 
 
