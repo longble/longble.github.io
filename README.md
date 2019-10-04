@@ -1,6 +1,6 @@
 # longble.com
 Personal website designed from template:
-https://github.com/longble/iamx-html
+https://github.com/ahmedfaruk/iamx-html
 
 #Credits: 
 - <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>
