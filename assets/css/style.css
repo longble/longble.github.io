@@ -1487,9 +1487,9 @@ Icon for all respective meta
 }
 
 .contact-section div > i{
-    float: left;
+    float: middle;
     font-size: 45px;
-    margin-right: 20px;
+    /*margin-right: 20px;*/
 }
 .contact-section address,
 .contact-section .e-mail {
@@ -1499,6 +1499,9 @@ Icon for all respective meta
     margin-bottom: 45px
 }
 
+.center {
+  text-align: center;
+}
 
 /*MAP*/
 .location-map {
